@@ -1,0 +1,12 @@
+{
+  "name": "app",
+  "private": true,
+  "dependencies": {
+  },
+  "version": "0.1.0",
+  "browserslist": [
+    "defaults"
+  ],
+  "devDependencies": {
+  }
+}

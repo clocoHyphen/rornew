@@ -1,0 +1,54 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<div id="users">
+    <table>
+  <thead>
+        <tr>
+          <th>Fname</th>
+          <th>Lname</th>
+          <th>Email</th>
+          <th>Dob</th>
+          <th>Gender</th>
+          <th>Address</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+  <% @users.each do |user| %>
+      <tbody>
+          <td> <%= user.fname %></td>
+          <td> <%= user.lname %> </td>
+          <td> <%= user.email %> </td>
+          <td> <%= user.dob %> </td>
+          <td> <%= user.gender %> </td>
+          <td> <%= user.address %>  </td>
+          <td>
+            <div class="action">
+            <%= link_to "Edit", edit_user_path(user.id) %>
+            <%= button_to "Delete", user, method: :delete%>
+            <%# , data:{confirm:"Are you sure?"} %>
+            <%= link_to "Show", user %>
+           </div>
+        </td>
+      </tbody>
+  <% end %>
+    </table>
+      <%= link_to "New", new_user_path %>
+</div>
+
+<style>
+
+  table,td,th{
+    border:1px solid black;
+    display:flex horizontal;
+    padding:10px ;
+    border-collapse: collapse;
+    }
+
+  .action{
+    display:flex horizontal;
+  }
+
+</style>
+
