@@ -49,7 +49,7 @@ Rails.application.configure do
   # config.assume_ssl = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  config.force_ssl = false
 
   # Log to STDOUT by default
   config.logger = ActiveSupport::Logger.new(STDOUT)
@@ -86,6 +86,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.require_master_key = false
+  config.secret_key_base = '02135f09353abd97af6e02b9ca9464d063fd19e98c1fa3bf57d98add6538b2e9550a114b3bc609feb50f0be6987dac680cf3dc8cc21b9be14b9e6699031a5520'
+
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [

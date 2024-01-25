@@ -1,0 +1,13 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:3000"
+    entrypoint: /rails/bin/docker-entrypoint
+    command: ["./bin/rails", "server", "-b", "0.0.0.0"]
+    volumes:
+      - rorVolume:/rails/storage
+volumes:
+  rorVolume:
+    external: true
