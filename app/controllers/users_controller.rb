@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = User.where.not(role_id: 'admin')
     nice = @users
     render json:nice
   end
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
     managerId = params[:id]
     @users = User.left_joins(:music)
-    .select('users.userId,users.fname,users.lname,users.email,users.dob,musics.album, min(musics.created_at) as releaseDate,count(*) as count')
+    .select('users.userId,users.fname,users.lname,users.email,users.dob,musics.album, min(musics.created_at) as releaseDate,count(musics.album) as count')
     .where(managerId: managerId)
     .group("users.fname,users.lname,users.email,users.dob")
     render json: @users
